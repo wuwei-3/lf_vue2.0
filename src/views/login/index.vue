@@ -2,13 +2,13 @@
  * @Author: wuwei
  * @Date: 2022-03-03 15:07:38
  * @LastEditors: OBKoro1
- * @LastEditTime: 2022-03-03 15:51:34
+ * @LastEditTime: 2022-03-03 21:09:58
  * @FilePath: \lf_vue2.0\src\views\login\index.vue
 -->
 <template>
   <div class="login app-flex">
     <div class="n-form">
-      <h2 class="m-h1">用户登录</h2>
+      <h1 class="m-h1">用户登录</h1>
       <a-form
         :form="form"
         :label-col="{ span: 5 }"
@@ -86,11 +86,12 @@ export default {
   .m-h1
     text-align center
     padding-bottom 32px
+    color white
   .n-form
-    width 500px
-    background white
+    width 450px
     border-radius 20px
-    padding 36px
+    padding 36px 24px
+    box-shadow 2px 2px 12px #cccccc75
     .ant-form-item-children
       margin-bottom 5px
       display inline-block
@@ -99,6 +100,7 @@ export default {
       border-radius 0
     .ant-form label
       font-size 16px
+      color white
     .m-btn
       width 100%
       font-size 17px

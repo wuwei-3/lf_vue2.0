@@ -4,7 +4,7 @@
  * @Autor: wlg
  * @Date: 2021-06-17 08:44:31
  * @LastEditors: OBKoro1
- * @LastEditTime: 2022-03-03 14:57:06
+ * @LastEditTime: 2022-03-03 19:42:41
  */
 import axios from 'axios';
 import { message } from 'ant-design-vue';
@@ -18,6 +18,7 @@ const httpRequest = axios.create();
 
 httpRequest.interceptors.request.use(
   (config) => {
+    // config['Authorization'] = localStorage.getItem('token')
     return config;
   },
   (error) => {
