@@ -2,20 +2,15 @@
  * @Author: wuwei
  * @Date: 2022-03-03 15:07:38
  * @LastEditors: OBKoro1
- * @LastEditTime: 2022-03-03 21:09:58
+ * @LastEditTime: 2022-03-03 23:04:47
  * @FilePath: \lf_vue2.0\src\views\login\index.vue
 -->
 <template>
   <div class="login app-flex">
     <div class="n-form">
-      <h1 class="m-h1">用户登录</h1>
-      <a-form
-        :form="form"
-        :label-col="{ span: 5 }"
-        :wrapper-col="{ span: 17 }"
-        @submit="handleSubmit"
-      >
-        <a-form-item label="用户名">
+      <div class="m-h1">用户登录</div>
+      <a-form :form="form" :label-col="{ span: 0 }" :wrapper-col="{ span: 24 }">
+        <a-form-item label="">
           <a-input
             size="large"
             autocomplete="off"
@@ -26,28 +21,40 @@
               },
             ]"
             placeholder="请输入用户名"
-          />
+          >
+            <a-icon slot="prefix" class="mi" type="user"
+          /></a-input>
         </a-form-item>
-        <a-form-item label="密码">
+        <a-form-item label="">
           <a-input
             size="large"
             autocomplete="off"
             v-decorator="[
-              'phone',
+              'password',
               {
                 rules: [{ required: true, message: '请输入用户密码' }],
               },
             ]"
             placeholder="请输入用户密码"
-          />
+          >
+            <a-icon slot="prefix" class="mi" type="key" />
+          </a-input>
         </a-form-item>
-        <div class="pt16">
-          <a-checkbox @change="onChange"> 记住密码 </a-checkbox>
-        </div>
-        <div class="pt24">
-          <a-button type="primary" class="m-btn" size="large" html-type="submit"
+
+        <div>
+          <a-button
+            type="primary"
+            @click="handleSubmit"
+            class="m-btn"
+            size="large"
             >登录</a-button
           >
+        </div>
+        <div class="m-bottom">
+          <div class="m-left"><a>立即注册</a></div>
+          <div class="m-right">
+            <a-checkbox @change="onChange"> 记住密码 </a-checkbox>
+          </div>
         </div>
       </a-form>
     </div>
@@ -61,12 +68,18 @@ export default {
       form: this.$form.createForm(this),
     };
   },
-  mounted() {},
+  mounted() {
+    this.form.setFieldsValue({ phone: 199557997645 });
+  },
 
   methods: {
     /* 登录 */
     handleSubmit() {
-      this.form.validateFields(() => {});
+      this.form.validateFields((err, values) => {
+        if (!err) {
+          this.$router.push("/");
+        }
+      });
     },
     /* 记住密码 */
     onChange() {},
@@ -84,23 +97,40 @@ export default {
   background-position center
   background-size 100%
   .m-h1
-    text-align center
-    padding-bottom 32px
-    color white
+    padding-bottom 24px
+    font-size 22px
+    font-weight bold
+    color #1890ff
+  .m-bottom
+    margin-top 24px
+    display flex
+    align-items center
+    .m-left
+      width 50%
+    .m-right
+      width 50%
+      text-align right
+      label
+        font-size 14px !important
   .n-form
-    width 450px
-    border-radius 20px
-    padding 36px 24px
+    background white
+    width 420px
+    padding 36px
     box-shadow 2px 2px 12px #cccccc75
+    .mi
+      font-size 16px
+    .ant-input-affix-wrapper .ant-input:not(:first-child)
+      padding-left 39px
     .ant-form-item-children
       margin-bottom 5px
       display inline-block
       width 100%
+    .ant-input-lg
+      font-size 14px
     .ant-input
       border-radius 0
     .ant-form label
-      font-size 16px
-      color white
+      font-size 14px
     .m-btn
       width 100%
       font-size 17px

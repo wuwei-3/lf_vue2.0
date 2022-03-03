@@ -2,7 +2,7 @@
  * @Author: wuwei
  * @Date: 2022-03-03 15:06:25
  * @LastEditors: OBKoro1
- * @LastEditTime: 2022-03-03 22:24:50
+ * @LastEditTime: 2022-03-03 23:05:40
  * @FilePath: \lf_vue2.0\src\views\index.vue
 -->
 <template>
@@ -12,7 +12,8 @@
         <img src="../assets/logo.png" /><span>贝 贝 理 发</span>
       </div>
       <div class="p-user">
-        <span>欢迎你：超级管理员</span><a @click="loginOut">退出</a>
+        <span>欢迎你：超级管理员</span
+        ><a-icon type="logout" @click="loginOut" />
       </div>
     </div>
     <div class="e-bottom">
@@ -62,12 +63,15 @@ export default {
   methods: {
     /* 退出 */
     loginOut() {
+      let that = this;
       this.$confirm({
         title: "退出",
         content: "您确定要退出系统?",
         okText: "确认",
         cancelText: "取消",
-        onOk() {},
+        onOk() {
+          that.$router.push("/login");
+        },
         onCancel() {},
       });
     },
@@ -88,6 +92,8 @@ export default {
     background #001529
     box-shadow 0 1px 4px rgb(0 21 41 / 8%)
     color white
+    a
+      color #40a9ffd9
     .p-logo
       img
         width 30px

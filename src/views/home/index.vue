@@ -2,7 +2,7 @@
  * @Author: wuwei
  * @Date: 2022-03-03 21:46:06
  * @LastEditors: OBKoro1
- * @LastEditTime: 2022-03-03 22:25:53
+ * @LastEditTime: 2022-03-03 22:32:03
  * @FilePath: \lf_vue2.0\src\views\home\index.vue
 -->
 <template>
@@ -41,7 +41,7 @@ export default {};
     padding 14px
     cursor pointer
     .d-icon
-      background #1890ff
+      background #40a9ff
       border-radius 50%
       width 59px
       height 59px
