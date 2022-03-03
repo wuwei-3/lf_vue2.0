@@ -1,6 +1,6 @@
 # lf_vue2.0
 
-## Project setup
+## Project setup 这里只推荐npm安装
 ```
 npm install
 ```

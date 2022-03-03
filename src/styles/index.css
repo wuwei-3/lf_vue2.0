@@ -1,0 +1,25 @@
+html,body,#app{
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  color: #2c3e50;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.app-flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ant-btn{
+  border-radius: 0;
+}
+.mt24{
+  margin-top: 24px;
+}
+.pt24{
+  padding-top: 24px;
+}
+.pt16{
+  padding-top: 16px;
+}
