@@ -1,4 +1,6 @@
-html,body,#app{
+html,
+body,
+#app {
   height: 100%;
   width: 100%;
   font-size: 14px;
@@ -6,20 +8,29 @@ html,body,#app{
   font-family: Arial, Helvetica, sans-serif
 }
 
-.app-flex{
+.color-red {
+  color: #ff7875;
+}
+
+.app-flex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.ant-btn,.ant-modal-content{
+
+.ant-btn,
+.ant-modal-content {
   border-radius: 0;
 }
-.mt24{
+
+.mt24 {
   margin-top: 24px;
 }
-.pt24{
+
+.pt24 {
   padding-top: 24px;
 }
-.pt16{
+
+.pt16 {
   padding-top: 16px;
 }

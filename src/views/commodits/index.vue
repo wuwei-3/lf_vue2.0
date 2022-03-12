@@ -2,7 +2,7 @@
  * @Author: wuwei
  * @Date: 2022-03-12 14:22:15
  * @LastEditors: OBKoro1
- * @LastEditTime: 2022-03-12 15:36:55
+ * @LastEditTime: 2022-03-12 16:37:17
  * @FilePath: \lf_vue2.0\src\views\commodits\index.vue
 -->
 <template>
@@ -16,12 +16,13 @@
           @search="onSearch"
         />
       </div>
-      <div><a-button type="primary">添加商品</a-button></div>
-      <div class="btn2"><a-button type="danger">批量删除</a-button></div>
+      <div><a-button type="primary" @click="addCommon">添加商品</a-button></div>
+      <div class="btn2">
+        <a-button type="danger" @click="delList">批量删除</a-button>
+      </div>
     </div>
     <div class="s-table">
       <a-table
-        border
         :scroll="{ x: 1150 }"
         :row-selection="{
           selectedRowKeys: selectedRowKeys,
@@ -29,16 +30,59 @@
         }"
         :columns="columns"
         :data-source="dataList"
-      />
+        :rowKey="
+          (record, index) => {
+            return index;
+          }
+        "
+      >
+        <template slot="action">
+          <a>修改</a>
+          <a class="color-red">删除</a>
+        </template>
+      </a-table>
     </div>
+    <!-- 新增修改弹窗 -->
+    <a-modal
+      :width="680"
+      :title="addOrEditTitle"
+      :visible="addOrEditVisible"
+      :confirm-loading="confirmLoading"
+      @ok="handleAddOrEdit(true)"
+      @cancel="handleAddOrEdit"
+    >
+      <div>
+        <Form
+          :dataSource="formList"
+          :formItem="2"
+          ref="form"
+          :responsive="{
+            labelCol: { span: 6 },
+            wrapperCol: { span: 18 },
+          }"
+          formLayout="horizontal"
+        ></Form>
+      </div>
+    </a-modal>
   </div>
 </template>
 
 <script>
 import list from "./index.json";
+import Form from "../../components/form/index.vue";
 export default {
+  components: { Form },
   data() {
     return {
+      formList: [
+        {
+          type: "input",
+          label: "姓名",
+        },
+      ],
+      addOrEditTitle: "添加商品",
+      addOrEditVisible: true,
+      confirmLoading: false,
       selectedRowKeys: [],
       columns: [
         {
@@ -48,6 +92,7 @@ export default {
             return index + 1;
           },
           width: 80,
+          fixed: "left",
         },
         { title: "商品编码编码", dataIndex: "code", width: 150 },
         { title: "商品名称", dataIndex: "code1" },
@@ -57,7 +102,12 @@ export default {
         { title: "参考进价", dataIndex: "code5" },
         { title: "状态", dataIndex: "code6" },
         { title: "库存", dataIndex: "code7" },
-        { title: "操作", dataIndex: "action" },
+        {
+          title: "操作",
+          width: 100,
+          scopedSlots: { customRender: "action" },
+          fixed: "right",
+        },
       ],
       dataList: list,
     };
@@ -68,6 +118,17 @@ export default {
     onSearch() {},
     /* 复选框 */
     onSelectChange() {},
+    /* 添加商品 */
+    addCommon() {},
+    /* 批量删除 */
+    delList() {},
+    /* 新增修改弹窗 */
+    handleAddOrEdit(val) {
+      // 确定按钮
+      if (val != true) {
+        return (this.addOrEditVisible = false);
+      }
+    },
   },
 };
 </script>
@@ -82,6 +143,12 @@ export default {
   .s-table {
     height: calc(100% - 50px);
     border: 1px solid #e8e8e8;
+    .color-red {
+      margin-left: 12px;
+    }
+    .color-red:hover {
+      color: red;
+    }
   }
   .s-search {
     display: flex;
