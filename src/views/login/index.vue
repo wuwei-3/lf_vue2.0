@@ -2,7 +2,7 @@
  * @Author: wuwei
  * @Date: 2022-03-03 15:07:38
  * @LastEditors: OBKoro1
- * @LastEditTime: 2022-03-03 23:04:47
+ * @LastEditTime: 2022-03-12 14:47:07
  * @FilePath: \lf_vue2.0\src\views\login\index.vue
 -->
 <template>
@@ -86,52 +86,66 @@ export default {
   },
 };
 </script>
+<style lang="less">
+.login {
+  width: 100%;
+  height: 100%;
+  background: #f0f2f5;
+  background-image: url("../../assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  .m-h1 {
+    padding-bottom: 24px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1890ff;
+  }
 
-<style lang="stylus">
-.login
-  width 100%
-  height 100%
-  background #f0f2f5
-  background-image url('../../assets/bg.jpg')
-  background-repeat no-repeat
-  background-position center
-  background-size 100%
-  .m-h1
-    padding-bottom 24px
-    font-size 22px
-    font-weight bold
-    color #1890ff
-  .m-bottom
-    margin-top 24px
-    display flex
-    align-items center
-    .m-left
-      width 50%
-    .m-right
-      width 50%
-      text-align right
-      label
-        font-size 14px !important
-  .n-form
-    background white
-    width 420px
-    padding 36px
-    box-shadow 2px 2px 12px #cccccc75
-    .mi
-      font-size 16px
-    .ant-input-affix-wrapper .ant-input:not(:first-child)
-      padding-left 39px
-    .ant-form-item-children
-      margin-bottom 5px
-      display inline-block
-      width 100%
-    .ant-input-lg
-      font-size 14px
-    .ant-input
-      border-radius 0
-    .ant-form label
-      font-size 14px
-    .m-btn
-      width 100%
-      font-size 17px
+  .m-bottom {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    .m-left {
+      width: 50%;
+    }
+    .m-right {
+      width: 50%;
+      text-align: right;
+      label {
+        font-size: 14px !important;
+      }
+    }
+  }
+  .n-form {
+    background: white;
+    width: 420px;
+    padding: 36px;
+    box-shadow: 2px 2px 12px #cccccc75;
+    .mi {
+      font-size: 16px;
+    }
+    .ant-input-affix-wrapper .ant-input:not(:first-child) {
+      padding-left: 39px;
+    }
+    .ant-form-item-children {
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+    width: 100%;
+    .ant-input-lg {
+      font-size: 14px;
+    }
+    .ant-input {
+      border-radius: 0;
+    }
+    .ant-form label {
+      font-size: 14px;
+    }
+    .m-btn {
+      width: 100%;
+      font-size: 17px;
+    }
+  }
+}
 </style>

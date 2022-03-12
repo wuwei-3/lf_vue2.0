@@ -21,7 +21,7 @@
 <script>
 export default {};
 </script>
-
+<style lang="less"></style>
 <style lang="stylus">
 .egg-home
   width 100%
