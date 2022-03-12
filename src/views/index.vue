@@ -2,7 +2,7 @@
  * @Author: wuwei
  * @Date: 2022-03-03 15:06:25
  * @LastEditors: OBKoro1
- * @LastEditTime: 2022-03-12 14:44:54
+ * @LastEditTime: 2022-03-12 15:09:21
  * @FilePath: \lf_vue2.0\src\views\index.vue
 -->
 <template>
@@ -18,11 +18,7 @@
     </div>
     <div class="e-bottom">
       <div class="m-left">
-        <a-menu
-          style="width: 256px"
-          :default-selected-keys="selectActive"
-          @select="onSelect"
-        >
+        <a-menu :default-selected-keys="selectActive" @select="onSelect">
           <a-menu-item key="eggHome">
             <a-icon type="home" />
             首页
@@ -142,16 +138,18 @@ export default {
     display: flex;
     .m-left {
       width: 210px;
+      .ant-menu {
+        border-right: 0;
+      }
+      .ant-menu-item-selected {
+        border-right: 3px solid #1890ff;
+      }
       .ant-menu-item {
         height: 48px;
         line-height: 48px;
         font-size: 14px;
         .anticon {
           font-size: 16px;
-        }
-        .ant-menu-item-selected {
-          border-right: 3px solid #1890ff;
-          width: 210px;
         }
       }
     }
